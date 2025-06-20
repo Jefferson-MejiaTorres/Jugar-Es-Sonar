@@ -431,3 +431,111 @@ a:hover {
 .mision-section .quienes-somos-img:hover {
   transform: scale(1.02);
 }
+
+/* ===== SECCIÓN EQUIPO ===== */
+.equipo-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.equipo-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.equipo-imagen {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.equipo-container:hover .equipo-imagen {
+    transform: scale(1.05);
+}
+
+.equipo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(114, 180, 81, 0.1) 0%,
+        rgba(255, 49, 49, 0.1) 100%
+    );
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.equipo-container:hover .equipo-overlay {
+    opacity: 1;
+}
+
+.equipo-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #72b451;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.equipo-container:hover .equipo-badge {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.equipo-stat-icon {
+    transition: transform 0.3s ease;
+}
+
+.equipo-stat-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive para sección equipo */
+@media (max-width: 768px) {
+    .equipo-imagen {
+        height: 300px;
+    }
+    
+    .equipo-badge {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .equipo-imagen {
+        height: 250px;
+    }
+    
+    .equipo-container {
+        border-radius: 15px;
+    }
+    
+    .equipo-imagen {
+        border-radius: 15px;
+    }
+    
+    .equipo-overlay {
+        border-radius: 15px;
+    }
+}
