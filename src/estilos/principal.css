@@ -16,6 +16,177 @@
   --color-secondary-hover: #e62d2d;
 }
 
+/* ===== ESTILOS DEL HEADER MEJORADO CON GLASSMORPHISM ===== */
+.landing-header {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(114, 180, 81, 0.2);
+  transition: all 0.3s ease;
+  padding: 4px 0 !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.landing-header.sticky-top {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15) !important;
+  border-bottom: 1px solid rgba(114, 180, 81, 0.3);
+}
+
+/* Sección del brand (logo + nombre) */
+.header-brand {
+  padding-left: 0;
+}
+
+.header-logo {
+  height: 106px;
+  width: 106px;
+}
+
+/* Tipografía del nombre de la empresa */
+.company-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.3px;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.company-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: -2px;
+  margin-bottom: 0;
+}
+
+/* Estilos de la sección derecha */
+.header-right {
+  padding-right: 20px;
+}
+
+.header-slogan {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.header-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #333;
+  line-height: 1;
+  margin-top: -2px;
+  margin-bottom: 0;
+}
+
+/* Responsive para el header */
+@media (max-width: 768px) {
+  .landing-header {
+    padding: 3px 0 !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
+  .landing-header.sticky-top {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+  
+  .header-logo {
+    height: 88px;
+    width: 88px;
+  }
+  
+  .company-name {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+  
+  .company-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.6px;
+    margin-top: -2px;
+  }
+  
+  .header-slogan {
+    font-size: 1rem;
+    line-height: 1;
+  }
+  
+  .header-subtitle {
+    font-size: 0.85rem;
+    line-height: 1;
+    margin-top: -2px;
+  }
+  
+  .header-brand {
+    gap: 0.75rem !important;
+  }
+  
+  .header-right {
+    padding-right: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .landing-header {
+    padding: 2px 0 !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  .landing-header.sticky-top {
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+  }
+  
+  .header-logo {
+    height: 75px;
+    width: 75px;
+  }
+  
+  .company-name {
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  
+  .company-subtitle {
+    font-size: 0.75rem;
+    margin-top: -2px;
+  }
+  
+  .header-slogan {
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+  
+  .header-subtitle {
+    font-size: 0.8rem;
+    line-height: 1;
+    margin-top: -2px;
+  }
+  
+  .header-right {
+    padding-right: 10px;
+  }
+}
+
 /* Estilos base del body */
 body {
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -250,4 +421,13 @@ a:hover {
 
 .text-muted-custom {
   color: #6c757d !important;
+}
+
+/* ===== ESTILOS PARA LA SECCIÓN QUIÉNES SOMOS ===== */
+.mision-section .quienes-somos-img {
+  transition: transform 0.3s ease;
+}
+
+.mision-section .quienes-somos-img:hover {
+  transform: scale(1.02);
 }
