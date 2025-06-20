@@ -6,12 +6,12 @@
 }
 
 .footer-section h5 {
-  color: #28a745;
+  color: #72b451;
   margin-bottom: 1rem;
 }
 
 .footer-section h6 {
-  color: #ffc107;
+  color: #ff3131;
   margin-bottom: 0.5rem;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .footer-section a:hover {
-  color: #ffc107;
+  color: #72b451;
   text-decoration: underline;
 }
 

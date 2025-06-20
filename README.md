@@ -1,85 +1,143 @@
-# 🚀 SecotoGPT - Plataformas Tecnológicas
+# 🎭 Jugar es Soñar - Construyendo horizontes de paz
 
 <div align="center">
 
-![SecotoGPT Logo](./imagenes/logo_secotogpt.svg)
+![Jugar es Soñar Logo](./imagenes/logo_secotogpt.svg)
 
-**Una plataforma educativa interactiva para el aprendizaje de Sistemas Operativos y Plataformas Tecnológicas**
+**Corporación social, deportiva, artística y cultural en Norte de Santander**
 
-[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=for-the-badge&logo=vercel)](https://secoto-gpt.vercel.app)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/es/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/es/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/es/docs/Web/JavaScript)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![PostCSS](https://img.shields.io/badge/PostCSS-DD3A0A?style=for-the-badge&logo=postcss&logoColor=white)](https://postcss.org/)
-[![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](https://choosealicense.com/licenses/mit/)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 
 </div>
 
 ## 📖 Descripción
 
-SecotoGPT es una plataforma web educativa diseñada para estudiantes universitarios que cursan materias relacionadas con **Plataformas Tecnológicas** y **Sistemas Operativos**. El proyecto presenta de manera interactiva y visual los conceptos fundamentales de:
+**Jugar es Soñar** es una corporación social, deportiva, artística y cultural que trabaja en Norte de Santander con el objetivo de fortalecer valores, liderazgo y habilidades para la vida en niños, niñas, adolescentes y jóvenes.
 
-- 🖥️ **Sistemas Operativos**: Historia, tipos y funciones principales
-- ⚙️ **Gestión de Procesos**: Planificación, estados y control de procesos
-- 🧠 **Gestión de Memoria**: Asignación y optimización de memoria RAM
-- 💾 **Gestión de Almacenamiento**: Sistemas de archivos y gestión de discos
+Nuestro proyecto principal **"Construyendo horizontes de paz"** se desarrolla en la comuna 8 de Cúcuta, específicamente en los barrios Belisario, Sabana Verde y Niña Ceci, beneficiando a población en alta vulnerabilidad, incluyendo migrantes venezolanos y desplazados del Catatumbo.
 
-## ✨ Características
+### 🎯 **Nuestro enfoque**
+- 🎨 **Arte y Teatro**: Formación en técnicas de dibujo, pintura y teatro
+- 🤝 **Habilidades para la vida**: Talleres de resiliencia, convivencia y paz
+- 🌍 **Trabajo en red**: Colaboración con organizaciones locales
+- 👥 **Desarrollo integral**: Espacios seguros para el crecimiento personal
 
-### 🎨 **Diseño Moderno**
-- Interfaz responsiva y elegante
-- Modo oscuro/claro integrado
-- Animaciones suaves con CSS y Animate.css
-- Paleta de colores pasteles personalizada
+## ✨ Características del proyecto
 
-### 🔧 **Tecnologías Avanzadas**
-- **Frontend**: HTML5, CSS3, JavaScript ES6+
-- **Frameworks CSS**: TailwindCSS + Bootstrap 5 (CDN)
-- **Herramientas**: PostCSS, Autoprefixer
-- **Despliegue**: Vercel con CI/CD automático
+### 🎭 **Metodología integral**
+- **Fase Inicial**: Talleres de formación artística y habilidades para la vida
+- **Fase Central**: Creación de obras teatrales y artes plásticas sobre paz y convivencia
+- **Fase Final**: Muestra de talentos y conversatorios comunitarios
 
-### 📱 **Experiencia de Usuario**
-- Navegación intuitiva y accesible
-- Búsqueda integrada
-- Contenido organizado por módulos
-- Optimizado para dispositivos móviles
+### 🌟 **Impacto social**
+- **100+** beneficiarios directos (niños, niñas, adolescentes y jóvenes)
+- **300+** beneficiarios indirectos (familias y comunidad)
+- **Trabajo en red** con organizaciones locales y JAC
 
-## 🚀 Demo en Vivo
+### 🎨 **Áreas de trabajo**
+- **Social**: Fortalecimiento del tejido social comunitario
+- **Deportivo**: Actividades físicas y recreativas
+- **Artístico**: Teatro, pintura, artes plásticas
+- **Cultural**: Preservación y promoción cultural
 
-🔗 **[Ver SecotoGPT en Vercel](https://secoto-gpt.vercel.app)**
+## 🚀 Estructura del sitio web
 
-## 🛠️ Instalación y Configuración
+### 📱 **Diseño responsivo**
+- Interfaz moderna y accesible
+- Optimizada para dispositivos móviles
+- Navegación intuitiva y clara
+
+### 🔧 **Tecnologías utilizadas**
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Framework CSS**: Bootstrap 5
+- **Iconos**: Bootstrap Icons
+- **Fuentes**: Google Fonts (Poppins)
+- **Animaciones**: Animate.css
+
+### � **Secciones principales**
+1. **Hero**: Presentación principal del proyecto
+2. **Misión**: Información sobre la corporación
+3. **Proyecto**: Detalles del proyecto "Construyendo horizontes de paz"
+4. **Trabajo en red**: Organizaciones aliadas e impacto
+5. **Participación**: Formularios para beneficiarios y colaboradores
+6. **Objetivos**: Metodología y justificación del proyecto
+7. **Contacto**: Suscripción y información de contacto
+
+## 🛠️ Instalación y uso
 
 ### Prerrequisitos
-- **Node.js** v18+ 
-- **npm** v8+
-- **Git**
+- Navegador web moderno
+- Servidor web local (opcional)
 
-### 1️⃣ Clonar el Repositorio
+### 1️⃣ Clonar o descargar el proyecto
 ```bash
-git clone https://github.com/Jefferson-MejiaTorres/SecotoGpt.git
-cd SecotoGpt
+git clone [url-del-repositorio]
+cd Jugar-Es-Soñar
 ```
 
-### 2️⃣ Instalar Dependencias
+### 2️⃣ Abrir el sitio web
 ```bash
-npm install
+# Opción 1: Abrir directamente en el navegador
+# Hacer doble clic en index.html
+
+# Opción 2: Usar un servidor local (recomendado)
+# Con Python 3
+python -m http.server 8000
+
+# Con Node.js
+npx http-server
+
+# Con PHP
+php -S localhost:8000
 ```
 
-### 3️⃣ Configurar el Entorno de Desarrollo
-```bash
-# Construir CSS optimizado
-npm run build
-
-# Iniciar servidor de desarrollo
-npm run dev
+### 3️⃣ Acceder al sitio
+```
+http://localhost:8000
 ```
 
-### 4️⃣ Abrir en el Navegador
+## 📁 Estructura del proyecto
+
 ```
-http://localhost:3000
+Jugar-Es-Soñar/
+├── index.html              # Página principal
+├── README.md               # Documentación del proyecto
+├── LICENSE                 # Licencia del proyecto
+├── imagenes/              # Imágenes y recursos visuales
+│   ├── logo_secotogpt.svg        # Logo de la corporación
+│   ├── hero-ninos-jugando.jpg    # Imagen principal del hero
+│   ├── equipo-voluntarios.jpg    # Imagen del equipo
+│   └── sonrisa-ana-testimonio.jpg # Imagen testimonios
+├── src/                   # Código fuente
+│   └── estilos/          # Archivos de estilos CSS
+│       ├── principal.css        # Estilos principales
+│       └── footer-simple.css    # Estilos del footer
+└── public/               # Archivos públicos
+    └── tailwind.css     # Framework CSS (si se usa)
 ```
+
+## 🎯 Funcionalidades
+
+### ✅ **Características implementadas**
+- [x] Diseño responsivo y moderno
+- [x] Navegación suave entre secciones
+- [x] Formularios de participación y colaboración
+- [x] Información detallada del proyecto
+- [x] Sección de trabajo en red
+- [x] Metodología y objetivos claros
+- [x] Suscripción a newsletter
+- [x] Footer informativo actualizado
+
+### 🔄 **Mejoras futuras**
+- [ ] Integración con backend para formularios
+- [ ] Sistema de gestión de contenido
+- [ ] Galería de fotos y videos
+- [ ] Blog de noticias y actividades
+- [ ] Panel de administración
+- [ ] Integración con redes sociales
 
 ## 📋 Scripts Disponibles
 
