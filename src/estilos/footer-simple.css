@@ -1,0 +1,43 @@
+/* ===== FOOTER MODERNO SIMPLIFICADO ===== */
+
+.footer-section {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+}
+
+.footer-section h5 {
+  color: #28a745;
+  margin-bottom: 1rem;
+}
+
+.footer-section h6 {
+  color: #ffc107;
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #ffc107;
+  text-decoration: underline;
+}
+
+.footer-section .social-links a {
+  transition: transform 0.3s ease;
+}
+
+.footer-section .social-links a:hover {
+  transform: scale(1.2);
+}
+
+.footer-section .border-secondary {
+  border-color: #495057 !important;
+}
+
+.footer-section .text-muted {
+  color: #adb5bd !important;
+}
