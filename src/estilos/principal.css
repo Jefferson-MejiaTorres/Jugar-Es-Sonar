@@ -1,0 +1,51 @@
+/* Archivo principal de Tailwind para importar estilos y personalizaciones */
+
+/* Importar correcciones de compatibilidad para Bootstrap */
+@import './bootstrap-fixes.css';
+
+/* Importar estilos del header moderno */
+@import './header-modern.css';
+
+/* Importar estilos del footer moderno */
+@import './footer-modern.css';
+
+/* Importar estilos mejorados de la página principal */
+@import '../PaginaPrincipal/estilos/pagina-principal.css';
+
+/* Importar efectos especiales y animaciones avanzadas */
+@import '../PaginaPrincipal/estilos/efectos-especiales.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== VARIABLES GLOBALES COHERENTES ===== */
+/* Mantenemos solo las variables esenciales para compatibilidad */
+:root {
+  --color-se: #a8edea;
+  --color-co: #fed6e3;
+  --color-to: #fcb69f;
+  --color-gpt: #cfd9df;
+  --color-bg: #f8fafc;
+  --color-text: #22223b;
+}
+
+.dark {
+  --color-bg: #22223b;
+  --color-text: #f8fafc;
+}
+
+/* ===== ESTILOS BASE GLOBALES ===== */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: background 0.4s, color 0.4s;
+}
+
+/* ===== SCROLL SUAVE GLOBAL ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== COMPATIBILIDAD CON COMPONENTES LEGACY ===== */
+/* Solo mantener estilos necesarios para compatibilidad con otras páginas */

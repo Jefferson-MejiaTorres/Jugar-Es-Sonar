@@ -1,0 +1,15 @@
+# Archivos que no necesita Vercel para el runtime
+README.md
+estructura_proyecto.md
+.vscode/
+.stylelintrc.json
+.stylelintignore
+.vscodeignore
+
+# Archivos de desarrollo local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Comentario: postcss.config.js, tailwind.config.js y src/estilos/ 
+# son necesarios para el build, por lo que NO deben estar aquí

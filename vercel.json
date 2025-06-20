@@ -1,0 +1,48 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "./",
+  "installCommand": "npm install",
+  "framework": null,  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/secotogpt.html"
+    },    {
+      "source": "/gestion-procesos",
+      "destination": "/src/paginas/GestionProcesos/PrincipalGestionProcesos.html"
+    },
+    {
+      "source": "/sistemas-operativos", 
+      "destination": "/src/paginas/SistemasOperativos/PrincipalSistemasOperativos.html"
+    },
+    {
+      "source": "/gestion-memoria",
+      "destination": "/src/paginas/GestionMemoria/PrincipalGestionMemoria.html"
+    },
+    {
+      "source": "/gestion-almacenamiento",
+      "destination": "/src/paginas/GestionAlmacenamiento/PrincipalGestionAlmacenamiento.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options", 
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
+    }
+  ]
+}

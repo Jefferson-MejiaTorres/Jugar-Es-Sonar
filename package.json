@@ -1,0 +1,38 @@
+{
+  "name": "secotogpt",
+  "version": "1.0.0",
+  "description": "Una plataforma educativa interactiva para el aprendizaje de Sistemas Operativos y Plataformas Tecnológicas",
+  "main": "secotogpt.html",
+  "scripts": {
+    "build": "postcss ./src/estilos/principal.css -o ./public/tailwind.css",
+    "dev": "npm run build && npx live-server --port=3000 --open=/secotogpt.html",
+    "build-css": "postcss ./src/estilos/principal.css -o ./public/tailwind.css --watch",
+    "start": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jefferson-MejiaTorres/SecotoGpt.git"
+  },
+  "keywords": [
+    "education",
+    "operating-systems",
+    "university",
+    "web-platform",
+    "interactive-learning"
+  ],
+  "author": "Jefferson Mejía Torres",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jefferson-MejiaTorres/SecotoGpt/issues"
+  },
+  "homepage": "https://secoto-gpt.vercel.app",
+  "dependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "postcss-cli": "^11.0.1"
+  }
+}
