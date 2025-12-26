@@ -552,8 +552,6 @@ body {
   .whatsapp-fab { right: 12px; bottom: 16px; width: 48px; height: 48px; }
 }
 
-}
-
 /* Scroll smooth behavior */
 html {
   scroll-behavior: smooth;
