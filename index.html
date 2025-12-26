@@ -693,5 +693,79 @@
 
   })();
   </script>
+
+  <!-- Live reload ligero (desarrollo): comprueba cambios en el HTML y ofrece recargar -->
+  <div id="liveReloadNotice" class="live-reload-notice" role="status" aria-live="polite" aria-atomic="true" style="display:none">
+    <span class="lr-message">Hay cambios en la página</span>
+    <div class="lr-actions">
+      <button id="lrReload">Recargar</button>
+      <button id="lrDismiss" aria-label="Cerrar aviso">Cerrar</button>
+    </div>
+  </div>
+  <script>
+  (function(){
+    // Config: intervalo en ms
+    const CHECK_INTERVAL = 4000;
+    const AUTO_RELOAD_AFTER = 3500; // auto-recarga después de este ms si no se cierra
+
+    let lastHash = null;
+    const notice = document.getElementById('liveReloadNotice');
+    const btnReload = document.getElementById('lrReload');
+    const btnDismiss = document.getElementById('lrDismiss');
+    let autoReloadTimer = null;
+
+    function hashString(s){
+      // djb2 simple
+      let h = 5381; for(let i=0;i<s.length;i++){ h = ((h<<5) + h) + s.charCodeAt(i); }
+      return h >>> 0;
+    }
+
+    async function check(){
+      try{
+        const url = window.location.href.split('#')[0];
+        const res = await fetch(url + (url.includes('?') ? '&' : '?') + '_lr=' + Date.now(), { cache: 'no-store' });
+        if(!res.ok) return;
+        const text = await res.text();
+        const h = hashString(text);
+        if(lastHash === null){ lastHash = h; return; }
+        if(h !== lastHash){
+          lastHash = h;
+          showNotice();
+        }
+      }catch(e){ /* silent */ }
+    }
+
+    function showNotice(){
+      if(!notice) return;
+      notice.style.display = '';
+      notice.classList.add('visible');
+      // start auto reload
+      clearTimeout(autoReloadTimer);
+      autoReloadTimer = setTimeout(()=>{ window.location.reload(); }, AUTO_RELOAD_AFTER);
+    }
+
+    function hideNotice(){
+      if(!notice) return;
+      notice.classList.remove('visible');
+      setTimeout(()=>{ notice.style.display = 'none'; }, 220);
+      clearTimeout(autoReloadTimer);
+    }
+
+    btnReload.addEventListener('click', ()=> window.location.reload());
+    btnDismiss.addEventListener('click', ()=> hideNotice());
+
+    // Start polling after small delay
+    setTimeout(()=>{
+      check();
+      setInterval(check, CHECK_INTERVAL);
+    }, 1200);
+
+    // Optional: stop polling if tab is hidden to save bandwidth
+    document.addEventListener('visibilitychange', ()=>{
+      if(document.hidden){ /* could pause checking */ }
+    });
+
+  })();
+  </script>
 </body>
 </html>

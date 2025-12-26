@@ -728,6 +728,51 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Live reload notice (desarrollo): aparece discretamente cuando hay cambios en el servidor */
+.live-reload-notice {
+  position: fixed;
+  right: 18px;
+  bottom: 116px; /* por encima del back-to-top y del FAB */
+  z-index: 2050;
+  background: rgba(36,49,36,0.96);
+  color: #fff;
+  padding: 0.55rem 0.8rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  min-width: 220px;
+  font-weight: 600;
+  transform-origin: right bottom;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px) scale(0.98);
+  transition: opacity .18s ease, transform .18s cubic-bezier(.2,.9,.2,1);
+}
+
+.live-reload-notice.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.live-reload-notice .lr-actions { margin-left: auto; display:flex; gap:0.5rem; }
+.live-reload-notice button {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: none;
+  padding: 0.35rem 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.live-reload-notice button:hover { background: rgba(255,255,255,0.18); }
+
+@media (max-width: 576px) {
+  .live-reload-notice { right: 12px; bottom: 120px; min-width: 190px; font-size: 0.95rem; }
+}
+
 /* Mejoras de accesibilidad */
 .btn:focus,
 .form-control:focus,
