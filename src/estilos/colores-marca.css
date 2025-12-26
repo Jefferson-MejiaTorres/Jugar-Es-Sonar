@@ -31,7 +31,22 @@
 
 /* Hero con gradiente de marca */
 .hero-gradient {
-  background: linear-gradient(rgba(114, 180, 81, 0.8), rgba(94, 146, 66, 0.6)), url('../../imagenes/hero-ninos-jugando.jpg') center/cover no-repeat;
+  background: white;
+  position: relative;
+}
+
+.hero-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: none;
+  filter: none;
+  animation: none;
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Sombras con colores de marca */
@@ -110,6 +125,20 @@
   50% {
     box-shadow: 0 0 0 20px transparent;
   }
+}
+
+@keyframes backgroundMove {
+  0% { background-position: 0% 50%, 50% 50%, 0% 50%; }
+  50% { background-position: 100% 50%, 50% 50%, 100% 50%; }
+  100% { background-position: 0% 50%, 50% 50%, 0% 50%; }
+}
+
+@keyframes starFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(90deg); }
+  50% { transform: translateY(0px) rotate(180deg); }
+  75% { transform: translateY(10px) rotate(270deg); }
+  100% { transform: translateY(0px) rotate(360deg); }
 }
 
 .pulse-primario {
