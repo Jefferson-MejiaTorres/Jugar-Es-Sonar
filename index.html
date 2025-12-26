@@ -582,6 +582,11 @@
     </div>
   </div>
 
+  <!-- Botón discreto "Subir al inicio": flechita centrada a la derecha -->
+  <button id="backToTop" class="back-to-top" aria-label="Subir al inicio" title="Volver arriba">
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  </button>
+
   <script>
   (function(){
     const WA_NUMBER = '573022226891';
@@ -653,6 +658,38 @@
 
     // Close hint if user opens the options
     toggle.addEventListener('click', ()=>{ hideHint(false); });
+
+    // --- Back to top behaviour ---
+    const backToTopBtn = document.getElementById('backToTop');
+    if(backToTopBtn){
+      function onScrollBack(){
+        const showAfter = 300; // pixels
+        if(window.scrollY > showAfter){
+          backToTopBtn.classList.add('visible');
+        } else {
+          backToTopBtn.classList.remove('visible');
+        }
+      }
+      // initial
+      onScrollBack();
+      window.addEventListener('scroll', onScrollBack, { passive: true });
+
+      backToTopBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      backToTopBtn.addEventListener('keydown', (e)=>{
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+
+      // Improve visibility when focusing via keyboard
+      backToTopBtn.addEventListener('focus', ()=> backToTopBtn.classList.add('visible'));
+      backToTopBtn.addEventListener('blur', ()=> onScrollBack());
+    }
 
   })();
   </script>

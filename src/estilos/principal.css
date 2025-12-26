@@ -577,9 +577,9 @@ body {
 /* Hint pequeño que apunta al botón y guía al usuario */
 .whatsapp-hint {
   position: absolute;
-  /* Ajustado para apuntar más cerca del FAB (ajustar si cambian tamaños) */
-  bottom: 68px;
-  right: 4px;
+  /* Bajado para quedar justo encima del FAB */
+  bottom: 56px;
+  right: 6px;
   background: #fff;
   color: #243124;
   padding: 0.45rem 0.8rem;
@@ -603,13 +603,13 @@ body {
   pointer-events: auto;
 }
 
-/* Ajustes para móviles: el FAB es más grande, subimos el hint un poco para mantener la flecha apuntando */
+/* Ajustes para móviles: reducir la separación y posicionar más cerca del FAB */
 @media (max-width: 576px) {
-  .whatsapp-hint { bottom: 84px; right: 8px; }
+  .whatsapp-hint { bottom: 72px; right: 10px; }
 }
 
 @media (max-width: 420px) {
-  .whatsapp-hint { bottom: 76px; right: 8px; }
+  .whatsapp-hint { bottom: 64px; right: 10px; }
 }
 .whatsapp-hint .hint-text { font-size: 0.95rem; color: var(--color-primary); }
 .whatsapp-hint .hint-close {
@@ -673,6 +673,54 @@ body {
   .whatsapp-fab { width: 64px; height: 64px; }
   .whatsapp-fab .bi-whatsapp { font-size: 1.7rem; }
   .whatsapp-options { min-width: 200px; bottom: 78px; }
+}
+
+/* Botón "back to top" discreto, pegado arriba del FAB de WhatsApp */
+.back-to-top {
+  position: fixed;
+  /* Posicionado encima del FAB: bottom = whatsapp bottom (20px) + FAB altura (56px) + gap (8px) = 84px */
+  right: 16px;
+  bottom: 84px;
+  z-index: 1950; /* debajo del FAB (2000) para evitar solapados visuales */
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.92);
+  color: var(--color-primary);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+  opacity: 0; /* hidden until shown */
+  pointer-events: none;
+  transition: opacity .18s ease, transform .12s ease, background .12s ease, bottom .12s ease;
+}
+
+/* Visible */
+.back-to-top.visible {
+  opacity: 0.95;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  transform: scale(1.03);
+  background: #fff;
+}
+
+.back-to-top .bi-arrow-up { font-size: 1.1rem; }
+
+/* Ajustes para pantallas pequeñas: FAB crece y su bottom cambia, ajustamos el espacio encima */
+@media (max-width: 576px) {
+  /* whatsapp-fab increases on very small screens, and whatsapp-container bottom may be 14px in some breakpoints */
+  .back-to-top { right: 12px; bottom: 86px; width: 52px; height: 52px; border-radius: 12px; }
+  .back-to-top .bi-arrow-up { font-size: 1.25rem; }
+}
+
+@media (max-width: 420px) {
+  /* fallback for very small devices: whatsapp bottom = 14px, fab = 64px -> bottom = 14 + 64 + 8 = 86px */
+  .back-to-top { right: 10px; bottom: 86px; }
 }
 
 /* Scroll smooth behavior */
