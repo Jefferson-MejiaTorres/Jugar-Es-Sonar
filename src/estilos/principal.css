@@ -590,10 +590,20 @@ body {
   background: var(--color-primario-claro);
 }
 
-@media (max-width: 420px) {
+@media (max-width: 576px) {
+  /* Más grande en móviles: botón y popover con mejor accesibilidad táctil */
   .whatsapp-container { right: 12px; bottom: 16px; }
-  .whatsapp-fab { width: 48px; height: 48px; }
-  .whatsapp-options { min-width: 180px; bottom: 64px; }
+  .whatsapp-fab { width: 72px; height: 72px; }
+  .whatsapp-fab .bi-whatsapp { font-size: 1.9rem; }
+  .whatsapp-options { min-width: 220px; bottom: 88px; }
+}
+
+/* Fallback para pantallas muy pequeñas */
+@media (max-width: 420px) {
+  .whatsapp-container { right: 10px; bottom: 14px; }
+  .whatsapp-fab { width: 64px; height: 64px; }
+  .whatsapp-fab .bi-whatsapp { font-size: 1.7rem; }
+  .whatsapp-options { min-width: 200px; bottom: 78px; }
 }
 
 /* Scroll smooth behavior */
