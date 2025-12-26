@@ -562,11 +562,19 @@
     });
   </script>
 
-  <!-- Botón flotante de WhatsApp con opciones rápidas -->
+  <!-- Botón flotante de WhatsApp con opciones rápidas y aviso -->
   <div class="whatsapp-container" aria-haspopup="true">
     <button class="whatsapp-fab" id="whatsappToggle" aria-expanded="false" aria-controls="whatsappOptions" aria-label="Abrir opciones de WhatsApp" title="Escríbenos por WhatsApp: +57 302 222 6891">
       <i class="bi bi-whatsapp" aria-hidden="true"></i>
     </button>
+
+    <!-- Mensaje de hint (se muestra brevemente para guiar al usuario) -->
+    <div class="whatsapp-hint" id="whatsappHint" aria-hidden="true" role="status">
+      <span class="hint-text">¿Tienes preguntas? ¡Escríbenos!</span>
+      <button class="hint-close" aria-label="Cerrar aviso">×</button>
+      <span class="hint-arrow" aria-hidden="true"></span>
+    </div>
+
     <div class="whatsapp-options" id="whatsappOptions" role="menu" aria-hidden="true">
       <a role="menuitem" class="whatsapp-option" href="#" data-message="Hola, estoy interesado en más información sobre los talleres artísticos.">Talleres artísticos</a>
       <a role="menuitem" class="whatsapp-option" href="#" data-message="Hola, quisiera información sobre talleres deportivos y horarios.">Talleres deportivos</a>
@@ -618,6 +626,34 @@
         openWA(msg);
       });
     });
+
+    // Hint behavior: show a small guidance bubble once unless dismissed
+    const hint = document.getElementById('whatsappHint');
+    const hintClose = hint && hint.querySelector('.hint-close');
+    function showHint(){
+      if(!hint) return;
+      if(localStorage.getItem('waHintDismissed')) return;
+      hint.classList.add('visible','pulse');
+      hint.setAttribute('aria-hidden','false');
+    }
+    function hideHint(persist=true){
+      if(!hint) return;
+      hint.classList.remove('visible','pulse');
+      hint.setAttribute('aria-hidden','true');
+      if(persist) localStorage.setItem('waHintDismissed','1');
+    }
+
+    // Show after small delay, auto-hide later
+    setTimeout(()=>{ showHint(); }, 1200);
+    setTimeout(()=>{ hideHint(false); }, 8000);
+
+    hintClose && hintClose.addEventListener('click', (e)=>{
+      e.stopPropagation(); hideHint(true);
+    });
+
+    // Close hint if user opens the options
+    toggle.addEventListener('click', ()=>{ hideHint(false); });
+
   })();
   </script>
 </body>
