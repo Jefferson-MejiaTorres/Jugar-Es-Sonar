@@ -339,6 +339,43 @@ body {
   .hero-cta { width: 100% !important; display: block; }
 } 
 
+/* Estilo específico para el botón Misión y Visión: verde clarito por defecto y al hover */
+a[href="#mision-vision"].btn {
+  transition: background .18s ease, color .18s ease, transform .14s cubic-bezier(.2,.9,.2,1), box-shadow .18s ease;
+  will-change: transform, background, color;
+  border-color: var(--color-primario) !important;
+  color: var(--color-primario) !important;
+  background: transparent;
+}
+
+a[href="#mision-vision"].btn:hover,
+a[href="#mision-vision"].btn:focus {
+  background: rgba(114, 180, 81, 0.14); /* verde clarito */
+  border-color: var(--color-primario-hover);
+  color: #17330d; /* texto más oscuro para buen contraste */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(114, 180, 81, 0.12);
+  text-decoration: none;
+}
+
+/* Persistir un efecto reducido al hacer click */
+a[href="#mision-vision"].btn:active {
+  transform: translateY(-1px) scale(0.995);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+/* Foco accesible (keyboard) */
+a[href="#mision-vision"].btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(114, 180, 81, 0.18);
+}
+
+/* Ajustes para pantallas pequeñas: conservar toque amplio y animación sutil */
+@media (max-width: 576px) {
+  a[href="#mision-vision"].btn { padding: 0.8rem 1.25rem; }
+}
+
+
 /* Estilos para las tarjetas de impacto */
 .impact-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
