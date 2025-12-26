@@ -4,18 +4,18 @@
 /* Variables CSS para colores y espaciado */
 :root {
   --color-primary: #72b451;
-  --color-secondary: #ff3131;
+  --color-secondary: #ff8a8a; /* secundario más suave */
   --color-success: #72b451;
-  --color-danger: #ff3131;
+  --color-danger: #ff8a8a;
   --color-warning: #ffc107;
   --color-info: #17a2b8;
   --color-light: #f8f9fa;
   --color-dark: #343a40;
   --color-primary-light: rgba(114, 180, 81, 0.1);
   --color-primary-hover: #5e9242;
-  --color-secondary-light: rgba(255, 49, 49, 0.1);
-  --color-secondary-hover: #e62d2d;
-}
+  --color-secondary-light: rgba(255, 138, 138, 0.12);
+  --color-secondary-hover: #ff6b6b;
+} 
 
 /* ===== CONFIGURACIÓN GLOBAL RESPONSIVE (TIPOGRAFÍA y UTILIDADES) ===== */
 /* Tipografía escalable para mejorar lectura en móviles y escritorio. Usamos `clamp` para mantener tamaños legibles.

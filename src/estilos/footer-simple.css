@@ -12,9 +12,9 @@
 }
 
 .footer-section h6 {
-  color: #ff3131;
+  color: var(--color-secundario);
   margin-bottom: 0.5rem;
-}
+} 
 
 .footer-section a {
   color: white;

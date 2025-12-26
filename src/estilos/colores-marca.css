@@ -1,14 +1,19 @@
 /* ===== COLORES DE MARCA JUGAR ES SOÑAR ===== */
-/* Colores oficiales: Primario #72b451 (Verde) - Secundario #ff3131 (Rojo) */
+/* Colores oficiales: Primario #72b451 (Verde) - Secundario #ff8a8a (Coral claro) */
 
 /* Variables globales */
 :root {
   --color-primario: #72b451;
-  --color-secundario: #ff3131;
+  --color-secundario: #ff8a8a; /* secundario más suave para mejor experiencia visual */
   --color-primario-claro: rgba(114, 180, 81, 0.1);
   --color-primario-hover: #5e9242;
-  --color-secundario-claro: rgba(255, 49, 49, 0.1);
-  --color-secundario-hover: #e62d2d;
+  --color-secundario-claro: rgba(255, 138, 138, 0.12);
+  --color-secundario-hover: #ff6b6b;
+  /* Alias en inglés para compatibilidad con archivos que usan nombres diferentes */
+  --color-primary: var(--color-primario);
+  --color-secondary: var(--color-secundario);
+  --color-primary-light: var(--color-primario-claro);
+  --color-secondary-light: var(--color-secundario-claro);
 }
 
 /* Gradientes de marca */
