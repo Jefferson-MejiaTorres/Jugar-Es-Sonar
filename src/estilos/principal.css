@@ -1,4 +1,5 @@
 /* ===== ESTILOS PRINCIPALES PARA LANDING PAGE JUGAR ES SOÑAR ===== */
+/* Cambios (2025-12-26): mejoras de UX móvil, tipografía responsive (clamp), hero y header optimizados, footer más accesible. Comentarios profesionales en español. */
 
 /* Variables CSS para colores y espaciado */
 :root {
@@ -15,6 +16,37 @@
   --color-secondary-light: rgba(255, 49, 49, 0.1);
   --color-secondary-hover: #e62d2d;
 }
+
+/* ===== CONFIGURACIÓN GLOBAL RESPONSIVE (TIPOGRAFÍA y UTILIDADES) ===== */
+/* Tipografía escalable para mejorar lectura en móviles y escritorio. Usamos `clamp` para mantener tamaños legibles.
+   Comentarios en español para mantener la documentación inline y profesional. */
+html {
+  font-size: clamp(14px, 1.1vw + 0.5rem, 18px);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+/* Contenedor con padding responsive útil para elementos fuera de .container de Bootstrap */
+.container-responsive {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 768px) {
+  .container-responsive { padding-left: 2rem; padding-right: 2rem; }
+}
+
+/* Preferencias de reducción de movimiento para accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Comentarios: usar unidades relativas (rem) y tipografía escalable mejora la consistencia en dispositivos */
 
 /* ===== ESTILOS DEL HEADER MEJORADO CON GLASSMORPHISM ===== */
 .landing-header {
@@ -185,6 +217,13 @@
   .header-right {
     padding-right: 10px;
   }
+
+  /* Acciones móviles en header: espacio y botón amplio para fácil acceso */
+  .header-mobile-actions .btn {
+    padding: 0.6rem 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
 }
 
 /* Estilos base del body */
@@ -195,25 +234,49 @@ body {
 }
 
 /* Estilos para el hero */
+/* Ajustes para mejor performance en móvil y tipografía responsive */
 .hero-section {
   position: relative;
-  min-height: 90vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-attachment: fixed;
-  background: linear-gradient(rgba(114, 180, 81, 0.8), rgba(94, 146, 66, 0.6));
+  background: linear-gradient(rgba(114, 180, 81, 0.9), rgba(94, 146, 66, 0.6));
+  background-size: cover;
+  background-position: center;
+  /* Notar: evitamos background-attachment: fixed en móviles por rendimiento */
+}
+@media (min-width: 1024px) {
+  .hero-section { min-height: 90vh; background-attachment: fixed; }
 }
 
+/* Titulares escalares para mantener buena legibilidad en pantallas pequeñas */
 .hero-title {
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   color: white;
+  font-size: clamp(1.6rem, 4.8vw, 3.2rem);
+  line-height: 1.05;
+  margin-bottom: 0.6rem;
+  text-wrap: balance;
+  text-align: center;
 }
 
 .hero-subtitle {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
   color: white;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  margin-bottom: 1rem;
+  text-align: center;
 }
+
+/* Botón CTA en hero: ancho completo en pantallas pequeñas para mejor usabilidad táctil */
+.hero-cta {
+  min-width: 240px;
+  padding: 0.75rem 1.25rem;
+}
+@media (max-width: 576px) {
+  .hero-cta { width: 100% !important; display: block; }
+} 
 
 /* Estilos para las tarjetas de impacto */
 .impact-card {

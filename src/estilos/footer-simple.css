@@ -1,4 +1,5 @@
 /* ===== FOOTER MODERNO SIMPLIFICADO ===== */
+/* Cambios (2025-12-26): ajustes para apilado en móvil y tamaños de toque (accesibilidad). */
 
 .footer-section {
   background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
@@ -41,3 +42,24 @@
 .footer-section .text-muted {
   color: #adb5bd !important;
 }
+
+/* Mejora para dispositivos móviles: aumentar zonas táctiles y apilar columnas */
+@media (max-width: 768px) {
+  .footer-section {
+    padding: 2.5rem 1rem;
+    text-align: center;
+  }
+  .footer-section h5 { margin-top: 0.5rem; }
+  .footer-section .social-links { margin-top: 1rem; }
+  .footer-section .social-links a {
+    display: inline-block;
+    padding: 12px;
+    margin: 0 6px;
+    border-radius: 8px;
+  }
+  /* Si el footer tiene columnas, las apilamos para mejorar lectura en móvil */
+  .footer-section .footer-columns { display: block; }
+  .footer-section .footer-columns > div { margin-bottom: 1.2rem; }
+}
+
+/* Comentario: estas reglas aseguran mejor usabilidad táctil y lectura en pantallas pequeñas */

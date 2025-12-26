@@ -1,5 +1,6 @@
 /* ===== FOOTER MODERNO SECOTOGPT - RESPONSIVE OPTIMIZADO ===== */
 /* Diseño coherente con header y página principal, responsivo y con modo nocturno optimizado */
+/* Nota (2025-12-26): se añadieron reglas para mejorar usabilidad en móviles y tamaños de interacción (touch targets). */
 
 /* ===== VARIABLES ESPECÍFICAS DEL FOOTER ===== */
 :root {
@@ -1138,4 +1139,13 @@
   .footer-toggle-icon {
     font-size: 0.6rem;
   }
+}
+
+/* Mejora táctil y apilado (comentario profesional en español) */
+@media (max-width: 768px) {
+  .footer-content { text-align: center; padding: 1.5rem 1rem; }
+  .footer-logo-centered { margin-bottom: 1rem; }
+  .social-links-centered { display: flex; justify-content: center; gap: 0.5rem; }
+  .social-link { padding: 10px; border-radius: 8px; }
+  .copyright-content-centered { padding-top: 0.5rem; }
 }
