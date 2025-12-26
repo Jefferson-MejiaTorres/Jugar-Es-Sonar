@@ -73,14 +73,15 @@ html {
 }
 
 .header-logo {
-  height: 106px;
-  width: 106px;
+  /* Logo más grande por defecto para mayor impacto visual */
+  height: 140px;
+  width: 140px;
 }
 
 /* Tipografía del nombre de la empresa */
 .company-name {
   font-family: 'Poppins', sans-serif;
-  font-size: 2rem;
+  font-size: 2.6rem; /* más grande por defecto */
   font-weight: 700;
   color: var(--color-primary);
   letter-spacing: -0.3px;
@@ -126,7 +127,7 @@ html {
 /* Responsive para el header */
 @media (max-width: 768px) {
   .landing-header {
-    padding: 3px 0 !important;
+    padding: 8px 0 !important;
     background: rgba(255, 255, 255, 0.9) !important;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -139,34 +140,34 @@ html {
   }
   
   .header-logo {
-    height: 88px;
-    width: 88px;
+    height: 110px; /* más grande en tablet/pequeño escritorio */
+    width: 110px;
   }
   
   .company-name {
-    font-size: 1.6rem;
+    font-size: 2rem; /* más grande para mayor presencia */
     line-height: 1;
   }
   
   .company-subtitle {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     letter-spacing: 0.6px;
     margin-top: -2px;
   }
   
   .header-slogan {
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1;
   }
   
   .header-subtitle {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     line-height: 1;
     margin-top: -2px;
   }
   
   .header-brand {
-    gap: 0.75rem !important;
+    gap: 0.9rem !important;
   }
   
   .header-right {
@@ -176,7 +177,7 @@ html {
 
 @media (max-width: 576px) {
   .landing-header {
-    padding: 2px 0 !important;
+    padding: 6px 0 !important;
     background: rgba(255, 255, 255, 0.92) !important;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -189,22 +190,22 @@ html {
   }
   
   .header-logo {
-    height: 75px;
-    width: 75px;
+    height: 96px; /* aumentado en móvil */
+    width: 96px;
   }
   
   .company-name {
-    font-size: 1.4rem;
+    font-size: 1.8rem; /* más grande para mejor legibilidad */
     line-height: 1;
   }
   
   .company-subtitle {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     margin-top: -2px;
   }
   
   .header-slogan {
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1;
   }
   
@@ -217,6 +218,24 @@ html {
   .header-right {
     padding-right: 10px;
   }
+
+  /* Mejorar distribución en móviles: permitir al texto ocupar más ancho y evitar saltos de línea innecesarios */
+  .header-brand { justify-content: flex-start; gap: 0.8rem; }
+  .header-logo { height: 96px; width: 96px; flex: 0 0 auto; }
+  .header-brand .brand-text { flex: 1 1 auto; min-width: 0; padding-right: 0.5rem; }
+  .company-name { font-size: clamp(1.4rem, 5.2vw, 2.4rem); white-space: normal; }
+  .company-subtitle { font-size: 0.85rem; }
+
+
+  /* Evitar overflow horizontal en móviles */
+  .landing-header { overflow-x: hidden; }
+
+  /* En pantallas medianas hacia arriba centramos el brand para un look equilibrado */
+  @media (min-width: 768px) {
+    .header-brand { justify-content: center; }
+    .brand-text { text-align: center; }
+  }
+
 
   /* Acciones móviles en header: espacio y botón amplio para fácil acceso */
   .header-mobile-actions .btn {
