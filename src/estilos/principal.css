@@ -189,46 +189,75 @@ html {
     -webkit-backdrop-filter: blur(15px);
   }
   
+  /* Logo ligeramente mayor pero dejando suficiente ancho para el título */
   .header-logo {
-    height: 96px; /* aumentado en móvil */
+    height: 96px;
     width: 96px;
+    flex: 0 0 auto;
   }
   
+  /* Organizar el texto en columna y permitir que el nombre ocupe toda la anchura restante */
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-right: 0.5rem;
+  }
+
   .company-name {
-    font-size: 1.8rem; /* más grande para mejor legibilidad */
+    font-size: clamp(1.4rem, 6.5vw, 1.95rem); /* reduce si hace falta para quedar en una sola línea */
     line-height: 1;
+    white-space: nowrap; /* forzar una sola línea */
+    overflow: hidden;
+    text-overflow: ellipsis; /* solo como fallback si no cabe */
+    width: 100%;
   }
-  
+
   .company-subtitle {
-    font-size: 0.85rem;
-    margin-top: -2px;
+    font-size: 0.9rem;
+    margin-top: 0.15rem;
+    width: 100%;
   }
-  
+
   .header-slogan {
     font-size: 1rem;
     line-height: 1;
   }
-  
+
   .header-subtitle {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     line-height: 1;
     margin-top: -2px;
   }
-  
+
   .header-right {
     padding-right: 10px;
   }
 
-  /* Mejorar distribución en móviles: permitir al texto ocupar más ancho y evitar saltos de línea innecesarios */
-  .header-brand { justify-content: flex-start; gap: 0.8rem; }
-  .header-logo { height: 96px; width: 96px; flex: 0 0 auto; }
-  .header-brand .brand-text { flex: 1 1 auto; min-width: 0; padding-right: 0.5rem; }
-  .company-name { font-size: clamp(1.4rem, 5.2vw, 2.4rem); white-space: normal; }
-  .company-subtitle { font-size: 0.85rem; }
-
+  /* Asegurar que el contenido del header use todo el ancho disponible y eliminar hueco derecho */
+  .container-fluid, .landing-header { padding-left: 0 !important; padding-right: 0 !important; }
+  .landing-header .row { margin-left: 0 !important; margin-right: 0 !important; }
+  .landing-header .col-12 { padding-left: 0.5rem !important; padding-right: 0 !important; }
+  .landing-header .header-brand { width: 100%; }
 
   /* Evitar overflow horizontal en móviles */
   .landing-header { overflow-x: hidden; }
+
+  /* Forzar que el brand ocupe todo el ancho en móviles y eliminar hueco derecho */
+  .header-brand { width: 100%; justify-content: flex-start !important; }
+  .brand-text { width: calc(100% - 96px - 0.8rem); text-align: left; }
+  .header-logo { flex: 0 0 96px; }
+
+  /* Quitar padding derecho del contenedor y columnas en xs para eliminar espacio en blanco */
+  .container-fluid { padding-right: 0 !important; padding-left: 0.5rem !important; }
+  .row { margin-right: 0 !important; }
+  .col-12 { padding-right: 0 !important; }
+
+  /* Asegurar que no haya overflow global */
+  html, body { overflow-x: hidden; }
 
   /* En pantallas medianas hacia arriba centramos el brand para un look equilibrado */
   @media (min-width: 768px) {

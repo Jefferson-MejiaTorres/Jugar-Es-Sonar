@@ -46,11 +46,11 @@
 
   <!-- Header mejorado -->
   <header class="landing-header bg-white shadow-sm sticky-top">
-    <div class="container-fluid px-2">
+    <div class="container-fluid px-0">
       <div class="row align-items-center">
-        <!-- Logo y nombre - Izquierda -->
-        <div class="col-md-6 col-8">
-          <div class="d-flex align-items-center gap-3 header-brand">
+        <!-- Logo y nombre - Izquierda (ocupa todo en xs) -->
+        <div class="col-12 col-md-6">
+          <div class="d-flex align-items-center gap-2 header-brand justify-content-start">
             <img src="./imagenes/logo_secotogpt.svg" alt="Jugar es Soñar" class="header-logo">
             <div class="brand-text">
               <h1 class="company-name mb-0">Jugar es Soñar</h1>
@@ -58,13 +58,11 @@
             </div>
           </div>
         </div>
-        <!-- Slogan - Derecha -->
-        <div class="col-md-6 col-4">
+        <!-- Slogan - Derecha (oculto en xs para liberar espacio) -->
+        <div class="col-12 col-md-6 d-none d-md-block">
           <div class="header-right text-end">
-            <div class="d-none d-md-block">
               <p class="header-slogan mb-0">Formando líderes de paz</p>
               <p class="header-subtitle mb-0">Arte, cultura y deporte para la vida</p>
-            </div>
           </div>
         </div>
       </div>
