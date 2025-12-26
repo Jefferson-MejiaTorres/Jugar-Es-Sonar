@@ -31,7 +31,8 @@
 
 /* Hero con gradiente de marca */
 .hero-gradient {
-  background: white;
+  /* Permitimos que capas de fondo (como SVG en .hero-section) sean visibles */
+  background: transparent;
   position: relative;
 }
 
