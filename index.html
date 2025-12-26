@@ -562,10 +562,63 @@
     });
   </script>
 
-  <!-- Botón flotante de WhatsApp -->
-  <a href="https://wa.me/573022226891" class="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Enviar mensaje por WhatsApp al +57 3022226891" title="Escríbenos por WhatsApp: +57 302 222 6891">
-    <i class="bi bi-whatsapp" aria-hidden="true"></i>
-  </a>
+  <!-- Botón flotante de WhatsApp con opciones rápidas -->
+  <div class="whatsapp-container" aria-haspopup="true">
+    <button class="whatsapp-fab" id="whatsappToggle" aria-expanded="false" aria-controls="whatsappOptions" aria-label="Abrir opciones de WhatsApp" title="Escríbenos por WhatsApp: +57 302 222 6891">
+      <i class="bi bi-whatsapp" aria-hidden="true"></i>
+    </button>
+    <div class="whatsapp-options" id="whatsappOptions" role="menu" aria-hidden="true">
+      <a role="menuitem" class="whatsapp-option" href="#" data-message="Hola, estoy interesado en más información sobre los talleres artísticos.">Talleres artísticos</a>
+      <a role="menuitem" class="whatsapp-option" href="#" data-message="Hola, quisiera información sobre talleres deportivos y horarios.">Talleres deportivos</a>
+      <a role="menuitem" class="whatsapp-option" href="#" data-message="Hola, quiero apoyar o ser voluntario; ¿cómo puedo participar?">Quiero ser voluntario</a>
+    </div>
+  </div>
 
+  <script>
+  (function(){
+    const WA_NUMBER = '573022226891';
+    const container = document.querySelector('.whatsapp-container');
+    const toggle = document.getElementById('whatsappToggle');
+    const options = document.getElementById('whatsappOptions');
+
+    if(!container || !toggle || !options) return;
+
+    function openWA(message){
+      const url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message);
+      window.open(url, '_blank');
+    }
+
+    toggle.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const isOpen = container.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      options.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    });
+
+    document.addEventListener('click', (e)=>{
+      if(!container.contains(e.target)){
+        container.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        options.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape'){
+        container.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        options.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    document.querySelectorAll('.whatsapp-option').forEach(el=>{
+      el.addEventListener('click', (ev)=>{
+        ev.preventDefault();
+        const msg = el.getAttribute('data-message') || '';
+        openWA(msg);
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
