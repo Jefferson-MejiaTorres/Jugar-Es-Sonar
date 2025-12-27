@@ -47,37 +47,36 @@
   color: #9aa4a6 !important;
 }
 
-/* Iconos de accesos rápidos: círculos con gradiente y microanimación */
+/* Iconos de accesos rápidos: minimalista y sobrio */
 .footer-quick-item .icon-circle {
-  width: 72px;
-  height: 72px;
-  border-radius: 999px;
-  color: #fff;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.2);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  color: #e9f0ef;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: none;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+  animation: none;
 }
 
-@keyframes pulse-soft {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
+/* Individual subtle variants kept neutral */
+.icon-mision, .icon-contact, .icon-proyecto {
+  background: transparent;
+  border-color: rgba(255,255,255,0.06);
+  color: #e9f0ef;
 }
-.footer-quick-item .icon-circle { animation: pulse-soft 6s ease-in-out infinite; }
-
-/* Individual vivid gradients */
-.icon-mision { background: linear-gradient(135deg, var(--color-primario), var(--color-primary-hover)); }
-.icon-contact { background: linear-gradient(135deg, var(--color-secundario), #ff6b6b); }
-.icon-proyecto { background: linear-gradient(135deg, var(--color-primario), var(--color-secundario)); }
 
 .footer-quick-item .small { color: #e9f0ef; font-weight:600; margin-top: 0.25rem; }
 
 .footer-quick-item:hover .icon-circle,
 .footer-quick-item:focus-visible .icon-circle {
-  transform: translateY(-6px) scale(1.06);
-  filter: brightness(1.02) saturate(1.12);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.22);
+  transform: translateY(-4px);
+  background: rgba(114,180,81,0.08);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
 }
 
 /* Redes sociales: colores vivos en hover */
@@ -131,7 +130,7 @@
   .footer-quick { justify-content: center; }
   .social-links { justify-content: center; }
   .footer-note { text-align: center !important; }
-  .footer-quick-item .icon-circle { width: 56px; height: 56px; }
+  .footer-quick-item .icon-circle { width: 48px; height: 48px; }
   .footer-contact .contact-item { justify-content: center; text-align: center; }
   .footer-contact .contact-icon { margin-bottom: .25rem; margin-right: 0 !important; }
   .footer-contact .contact-item > div { width: 100%; }
@@ -299,10 +298,11 @@
   /* Developer credit sits very close to bottom edge now (more breathing space) */
   .footer-credit { position: absolute; left: 0; right: 0; bottom: 14px; text-align: center; font-size: .85rem; color: #bfc9c9; display:flex; flex-direction:column; gap:10px; align-items:center; }
   .footer-credit .credit-links { display:flex; gap:12px; align-items:center; justify-content:center; }
-  .credit-link { display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:8px; color:#dbe7e6; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); transition: transform .18s ease, background .18s ease, box-shadow .18s ease; }
-  .credit-link i { font-size:1.1rem; }
-  .credit-link:hover, .credit-link:focus { transform: translateY(-3px); background: linear-gradient(135deg, var(--color-primario), var(--color-secundario)); color:#fff; box-shadow:0 12px 32px rgba(0,0,0,0.22); outline:none; }
-  .credit-link:focus { outline:2px solid rgba(114,180,81,0.18); border-radius:8px; }
+  /* Make credit icons minimal/neutral like quick-access icons */
+  .credit-link { display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:50%; color:#e9f0ef; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); box-shadow: none; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+  .credit-link i { font-size:1.05rem; }
+  .credit-link:hover, .credit-link:focus { transform: translateY(-4px); background: rgba(114,180,81,0.06); box-shadow: 0 8px 20px rgba(0,0,0,0.12); outline:none; }
+  .credit-link:focus { outline:2px solid rgba(114,180,81,0.12); }
 } 
 
 /* Mobile: make footer-bottom and footer-credit static to avoid overlap and reduce footer height */
@@ -316,24 +316,25 @@
   .credit-link {
     width: 64px !important;
     height: 64px !important;
-    border-radius: 12px !important;
+    border-radius: 50% !important;
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    font-size:1.1rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-    border:1px solid rgba(255,255,255,0.04);
+    font-size:1.2rem;
+    box-shadow: none;
+    background: rgba(255,255,255,0.02) !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    color: #e9f0ef !important;
     transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
   }
-  .credit-link i { font-size: 1.45rem !important; }
+  .credit-link i { font-size: 1.4rem !important; }
+  .credit-link:hover, .credit-link:focus { transform: translateY(-4px); background: rgba(114,180,81,0.06) !important; box-shadow: 0 8px 20px rgba(0,0,0,0.12) !important; }
 
   /* Active/focus state to hint movement on touch */
   .credit-link:active, .credit-link:focus { transform: translateY(-6px) scale(1.06); box-shadow: 0 14px 36px rgba(0,0,0,0.24); outline:none; }
 
-  /* Subtle idle bob animation to hint interactivity (respected by prefers-reduced-motion) */
-  @keyframes credit-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
-  .credit-link { animation: credit-bob 6s ease-in-out infinite; }
-  @media (prefers-reduced-motion: reduce) { .credit-link { animation: none !important; transition: none !important; } }
+  /* Remove idle bob animation for credit icons to keep minimal and calm */
+  .credit-link { animation: none !important; }
 }
 
 /* Comentario: estas reglas aseguran mejor usabilidad táctil y lectura en pantallas pequeñas */
