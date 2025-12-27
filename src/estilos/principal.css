@@ -922,6 +922,32 @@ a:hover {
   transform: scale(1.02);
 }
 
+/* Móvil: imagen grande, fuera de la apariencia de tarjeta y animada */
+@media (max-width: 576px) {
+  .mision-section .quienes-somos-img {
+    width: calc(100% + 2rem);
+    max-width: none;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: none;
+    border: none;
+    display: block;
+    transform-origin: center;
+    animation: imgPop 700ms cubic-bezier(.2,.9,.2,1) both;
+  }
+}
+
+@keyframes imgPop {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mision-section .quienes-somos-img { animation: none !important; transition: none !important; }
+}
+
 /* Armonizar tipografía con el hero: centrado, tamaños responsivos y sombra sutil */
 .mision-section .display-5 {
   color: var(--color-primario);
