@@ -497,11 +497,71 @@ a[href="#mision-vision"].btn:focus-visible {
 @media (max-width: 576px) {
   .achievement-item { flex-direction: column; align-items: center; text-align: center; padding: .9rem; }
   .achievement-item .achievement-icon,
-  .achievement-item .achievement-number { width: 64px !important; height: 64px !important; margin-bottom: .5rem; }
+  .achievement-item .achievement-number { width: 64px !important; height: 64px !important; margin-bottom: .5rem; flex: 0 0 auto; }
   .achievement-item .achievement-icon i,
   .achievement-number h3 { font-size: 1rem; }
+
+  /* Eliminar margen lateral de utilidades en móvil */
+  .achievement-item .me-4 { margin-inline-end: 0 !important; }
+
+  /* Forzar que el contenedor del icono sea un flex centrado y que el bloque de texto ocupe 100% */
+  .achievement-item > div:first-child { width: 100%; display: flex; justify-content: center; align-items: center; }
+  .achievement-item > div:last-child { width: 100%; }
+
+  /* Asegurar que los iconos queden centrados dentro de su contenedor */
+  .achievement-item .achievement-icon,
+  .achievement-item .achievement-number { margin-left: auto !important; margin-right: auto !important; }
+
+  /* Forzar que el bloque de texto ocupe 100% y esté centrado */
+  .achievement-item h5, .achievement-item p { text-align: center; }
+  .achievement-item .text-muted { display: block; margin: 0 auto; }
 }
 
+/* ===== PROYECTO CARDS: unificar estilo y corregir círculos en móvil ===== */
+.proyecto-card {
+  background: rgba(255,255,255,0.92);
+  border-radius: 1rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.04);
+  padding: 1rem;
+  min-height: 160px;
+}
+.proyecto-card .d-flex { gap: 1rem; align-items: flex-start; }
+
+.proyecto-icon {
+  width: 60px;
+  height: 60px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: inherit;
+  flex: 0 0 auto;
+}
+.proyecto-icon i { font-size: 1.25rem; line-height: 1; }
+.proyecto-card h4 { margin: 0; }
+.proyecto-card p { margin: 0 0 .75rem 0; color: #6c757d; }
+.proyecto-features i { margin-right: .5rem; }
+
+@media (max-width: 768px) {
+  .proyecto-card { padding: .9rem; }
+}
+@media (max-width: 576px) {
+  .proyecto-card { padding: .8rem; text-align: center; }
+  .proyecto-card > .d-flex { flex-direction: column; align-items: center; text-align: center; }
+  .proyecto-icon { width: 48px !important; height: 48px !important; margin-bottom: .5rem; }
+  .proyecto-icon i { font-size: 1rem; }
+
+  /* Forzar centrado horizontal del icono y eliminar margen utilitario en móvil */
+  .proyecto-card > .d-flex .proyecto-icon { margin-left: auto !important; margin-right: auto !important; }
+  .proyecto-card .me-3 { margin-inline-end: 0 !important; }
+
+  /* Forzar que el bloque de texto quede centrado y ocupe el ancho */
+  .proyecto-card > .d-flex > div { width: 100%; text-align: center; }
+  .proyecto-card h4, .proyecto-card p, .proyecto-card .badge { text-align: center; margin-left: auto; margin-right: auto; }
+}
 
 
 /* Helper classes para integración con Tailwind (fallback visual si Tailwind no carga) */
