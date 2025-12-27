@@ -290,4 +290,50 @@
   .footer-quick-item .icon-circle, .social-link { transition: none !important; transform: none !important; box-shadow: none !important; }
 }
 
+/* Footer-bottom: pin and center copyright/address on desktop */
+@media (min-width: 769px) {
+  /* Increase footer height further so credits sit clearly separated */
+  .footer-section { position: relative; padding-bottom: 15rem; }
+  /* Move copyright block up a bit so it is apart from developer credit */
+  .footer-bottom { position: absolute; left: 0; right: 0; bottom: 112px; text-align: center; font-size: .88rem; color: #cfd8d9; line-height: 1.12; }
+  /* Developer credit sits very close to bottom edge now (more breathing space) */
+  .footer-credit { position: absolute; left: 0; right: 0; bottom: 14px; text-align: center; font-size: .85rem; color: #bfc9c9; display:flex; flex-direction:column; gap:10px; align-items:center; }
+  .footer-credit .credit-links { display:flex; gap:12px; align-items:center; justify-content:center; }
+  .credit-link { display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:8px; color:#dbe7e6; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); transition: transform .18s ease, background .18s ease, box-shadow .18s ease; }
+  .credit-link i { font-size:1.1rem; }
+  .credit-link:hover, .credit-link:focus { transform: translateY(-3px); background: linear-gradient(135deg, var(--color-primario), var(--color-secundario)); color:#fff; box-shadow:0 12px 32px rgba(0,0,0,0.22); outline:none; }
+  .credit-link:focus { outline:2px solid rgba(114,180,81,0.18); border-radius:8px; }
+} 
+
+/* Mobile: make footer-bottom and footer-credit static to avoid overlap and reduce footer height */
+@media (max-width: 768px) {
+  .footer-bottom, .footer-credit { position: static !important; margin-top: .6rem; text-align: center; display: block; }
+  /* More breathing room at the bottom on mobile */
+  .footer-section { padding-bottom: 5.5rem; }
+  /* Increase spacing between the developer name and the icons, and enlarge icons for tap targets */
+  .footer-credit > div:first-child { margin-bottom: 12px; }
+  .footer-credit .credit-links { gap: 20px; margin-top: 10px; }
+  .credit-link {
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 12px !important;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    border:1px solid rgba(255,255,255,0.04);
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .credit-link i { font-size: 1.45rem !important; }
+
+  /* Active/focus state to hint movement on touch */
+  .credit-link:active, .credit-link:focus { transform: translateY(-6px) scale(1.06); box-shadow: 0 14px 36px rgba(0,0,0,0.24); outline:none; }
+
+  /* Subtle idle bob animation to hint interactivity (respected by prefers-reduced-motion) */
+  @keyframes credit-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+  .credit-link { animation: credit-bob 6s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) { .credit-link { animation: none !important; transition: none !important; } }
+}
+
 /* Comentario: estas reglas aseguran mejor usabilidad táctil y lectura en pantallas pequeñas */
