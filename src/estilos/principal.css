@@ -451,6 +451,58 @@ a[href="#mision-vision"].btn:focus-visible {
   .impact-card p { font-size: .92rem; }
 }
 
+/* ===== ACHIEVEMENT CARDS: unificar estilo y arreglo de círculos en móvil ===== */
+.achievement-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.92);
+  border-radius: 1rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.achievement-item .achievement-icon,
+.achievement-item .achievement-number {
+  width: 80px;
+  height: 80px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: inherit;
+  flex: 0 0 auto;
+}
+
+.achievement-item .achievement-icon i,
+.achievement-number h3 {
+  display: block;
+  line-height: 1;
+  font-size: 1.25rem;
+}
+
+.achievement-item h5 { margin: 0; font-weight: 700; }
+.achievement-item p { margin: 0; color: #6c757d; }
+
+/* Ensure spacing resets on small screens where .me-4 may cause overflow */
+.achievement-item .me-4 { margin-inline-end: 0 !important; }
+
+@media (max-width: 768px) {
+  .achievement-item { gap: .75rem; }
+}
+
+@media (max-width: 576px) {
+  .achievement-item { flex-direction: column; align-items: center; text-align: center; padding: .9rem; }
+  .achievement-item .achievement-icon,
+  .achievement-item .achievement-number { width: 64px !important; height: 64px !important; margin-bottom: .5rem; }
+  .achievement-item .achievement-icon i,
+  .achievement-number h3 { font-size: 1rem; }
+}
+
+
 
 /* Helper classes para integración con Tailwind (fallback visual si Tailwind no carga) */
 .tw-card {
