@@ -491,6 +491,70 @@ a[href="#mision-vision"].btn:focus-visible {
   transition: color 0.3s ease;
 }
 
+/* Mejora específica para "¿Quiénes somos?": centrado, espaciado y animaciones sutiles en móvil */
+.mision-section .row.g-3 { gap: .75rem; }
+.mision-section .row.g-3 .col-sm-6 { display: flex; align-items: center; }
+.mision-section .row.g-3 .col-sm-6 .d-flex { gap: .75rem; }
+.mision-section .row.g-3 i.bi { font-size: 1.4rem; color: var(--color-primary); transition: transform .25s ease; }
+.mision-section .row.g-3 h6 { margin-bottom: 0.2rem; }
+.mision-section .row.g-3 small { color: #666; }
+
+@media (max-width: 576px) {
+  .mision-section .row.g-3 { flex-direction: column; align-items: center; }
+  .mision-section .row.g-3 .col-sm-6 { width: 100%; max-width: 420px; padding: .6rem 1rem; }
+  .mision-section .row.g-3 .d-flex { justify-content: center; text-align:center; }
+  .mision-section .row.g-3 i.bi { font-size: 1.6rem; margin-right: 0; }
+  .mision-section .row.g-3 h6, .mision-section .row.g-3 small { text-align:center; }
+  .mision-section .d-flex.flex-wrap.gap-2 { justify-content:center; }
+  .quienes-somos-img { display:block; margin: 1.25rem auto 0; max-width: 90%; border-radius: 0.75rem; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+  /* Animaciones sutiles y escalonadas para cada ítem */
+  .mision-section .row.g-3 .col-sm-6 { opacity: 0; transform: translateY(12px); animation: fadeInUpSmall 600ms ease forwards; }
+  .mision-section .row.g-3 .col-sm-6:nth-child(1) { animation-delay: 120ms; }
+  .mision-section .row.g-3 .col-sm-6:nth-child(2) { animation-delay: 260ms; }
+}
+
+@keyframes fadeInUpSmall { from { opacity:0; transform: translateY(12px);} to { opacity:1; transform: translateY(0);} }
+
+/* Tarjetas estéticas para la sección "¿Quiénes somos?" */
+.info-cards { display:flex; gap:1rem; }
+.info-card { background: #fff; border-radius: .8rem; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border: 1px solid rgba(114,180,81,0.06); transition: transform .18s ease, box-shadow .18s ease; width:100%; display:flex; align-items:flex-start; }
+.info-card:focus { outline: none; box-shadow: 0 12px 36px rgba(0,0,0,0.08); transform: translateY(-3px); }
+.info-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.08); }
+.info-card .info-icon { flex-shrink: 0; display:inline-flex; align-items:center; justify-content:center; border-radius:999px; transition: transform .18s ease; }
+.info-card .info-body h6 { font-size: 1rem; }
+.info-card .info-body p { margin:0; color:#6b6b6b; }
+
+/* Helper backgrounds para íconos */
+.info-icon.bg-primario { background: var(--color-primary); color: #fff; }
+.info-icon.bg-primario-claro { background: var(--color-primary-light); color: var(--color-primary); }
+.info-icon.bg-warning { background: rgba(255,193,7,0.06); }
+
+/* Adaptación móvil: apilar y centrar */
+@media (max-width: 576px) {
+  .info-cards { flex-direction: column; align-items:center; }
+  .info-card { max-width: 420px; }
+  .info-card.animate-on-scroll { opacity:0; transform: translateY(10px); animation: fadeInUpSmall 560ms ease forwards; }
+  .info-card.animate-on-scroll:nth-child(1) { animation-delay: 100ms; }
+  .info-card.animate-on-scroll:nth-child(2) { animation-delay: 220ms; }
+  .info-card.animate-on-scroll:nth-child(3) { animation-delay: 340ms; }
+}
+
+/* En pantallas grandes: icono arriba y texto centrado para un layout ordenado */
+@media (min-width: 768px) {
+  .info-cards { flex-direction: row; align-items: stretch; }
+  .info-card { flex-direction: column; align-items: center; text-align: center; padding: 1.25rem 1.5rem; }
+  /* Centrar el icono horizontalmente y ajustar tamaño en desktop */
+  .info-card .info-icon { width: 64px; height: 64px; margin: 0 0 0.75rem; box-shadow: 0 8px 20px rgba(0,0,0,0.06); margin-left: auto; margin-right: auto; }
+  .info-card .info-body { display: block; }
+  .info-card .info-body p { margin-top: 0.25rem; }
+  .info-card .info-body h6 { margin-bottom: 0.2rem; }
+  .info-card:hover .info-icon { transform: translateY(-4px) scale(1.03); }
+  /* Alinear badges centrados en la tarjeta de Áreas */
+  .info-card .d-flex.flex-wrap { justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) { .mision-section .row.g-3 .col-sm-6, .quienes-somos-img, .info-card { animation:none !important; transition:none !important; } }
+
 /* Animaciones personalizadas */
 @keyframes fadeInUp {
   from {
