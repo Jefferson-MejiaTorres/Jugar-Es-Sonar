@@ -396,13 +396,23 @@ a[href="#mision-vision"].btn:focus-visible {
 .impact-card .impact-icon {
   width: 80px;
   height: 80px;
+  aspect-ratio: 1/1;
   flex: 0 0 auto;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto .75rem;
   background: inherit;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.impact-card .impact-icon i {
+  display: block;
+  line-height: 1;
+  font-size: 1.6rem; /* tamaño por defecto para iconos */
 }
 
 /* Titular y descripción */
@@ -434,11 +444,13 @@ a[href="#mision-vision"].btn:focus-visible {
 
 /* Responsive fixes */
 @media (max-width: 576px) {
-  .impact-card { min-height: 0; padding: 1rem; }
-  .impact-card .impact-icon { width: 64px; height: 64px; }
+  .impact-card { min-height: 0; padding: 0.9rem; align-items: center; }
+  .impact-card .impact-icon { width: 64px !important; height: 64px !important; }
+  .impact-card .impact-icon i { font-size: 1.35rem; }
   .impact-card h4 { font-size: 1rem; }
   .impact-card p { font-size: .92rem; }
 }
+
 
 /* Helper classes para integración con Tailwind (fallback visual si Tailwind no carga) */
 .tw-card {
