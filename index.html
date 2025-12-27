@@ -318,7 +318,7 @@
     <section class="py-5 bg-light">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold mb-3 animate__animated animate__fadeInUp" style="color: #72b451;">Proyectos relevantes</h2>
+                <h2 id="proyectos-relevantes" class="display-5 fw-bold mb-3 animate__animated animate__fadeInUp" style="color: #72b451;">Proyectos relevantes</h2>
                 <p class="lead text-muted animate__animated animate__fadeInUp animate__delay-1s">Iniciativas que han marcado nuestra trayectoria</p>
             </div>
             
@@ -469,38 +469,54 @@
   <!-- ===== FOOTER INFORMATIVO ===== -->
   <footer class="footer-section bg-dark text-white py-5 mt-5">
       <div class="container">
-          <div class="row g-4">              <div class="col-md-4">
-                  <h5 class="fw-bold mb-3" style="color: #72b451;">Nuestra misión</h5>
-                  <p class="mb-3">Fortalecemos valores, liderazgo y habilidades para la vida a través del arte, la cultura y el deporte, formando líderes de paz en Norte de Santander.</p>
-                  <h6 class="fw-bold mb-2" style="color: var(--color-secundario);">Visión</h6>
-                  <p>Ser referente en la construcción de horizontes de paz y desarrollo integral de la niñez y juventud en nuestra región.</p>
-              </div>
-              <div class="col-md-4" id="contacto">
-                  <h5 class="fw-bold mb-3" style="color: #72b451;">Contacto</h5>
-                  <p class="mb-2"><i class="bi bi-envelope me-2" style="color: var(--color-secundario);"></i> <a href="mailto:corporacionjugaressonarcjs@outlook.com" class="text-white text-decoration-none">corporacionjugaressonarcjs@outlook.com</a></p>
-                  <p class="mb-2"><i class="bi bi-whatsapp me-2" style="color: var(--color-secundario);"></i> <a href="tel:+573022226891" class="text-white text-decoration-none">+57 302 222 6891</a></p>
-                  <p class="mb-3"><i class="bi bi-geo-alt me-2" style="color: var(--color-secundario);"></i> Barrio Niña Ceci, Comuna 8, Cúcuta</p>
-                  <div class="d-flex gap-3">
-                      <a href="https://www.instagram.com/cjs_co/" target="_blank" rel="noopener noreferrer" aria-label="Instagram - Jugar es Soñar" class="text-white fs-4 p-3 rounded-lg hover:bg-white/10 transition"><i class="bi bi-instagram"></i></a>
-                      <a href="https://www.facebook.com/profile.php?id=100072492226109" target="_blank" rel="noopener noreferrer" aria-label="Facebook - Jugar es Soñar" class="text-white fs-4 p-3 rounded-lg hover:bg-white/10 transition"><i class="bi bi-facebook"></i></a>
-                      <a href="#" class="text-white fs-4"><i class="bi bi-youtube"></i></a>
+          <div class="row g-4 align-items-start">
+
+              <!-- Accesos rápidos: iconos que enlazan a secciones -->
+              <div class="col-md-4 text-center text-md-start">
+                  <h5 class="fw-bold mb-3" style="color: #72b451;">Accesos rápidos</h5>
+                  <div class="d-flex justify-content-center justify-content-md-start gap-3 footer-quick">
+                      <a href="#mision-vision" class="footer-quick-item text-white text-decoration-none d-flex flex-column align-items-center" aria-label="Ir a Misión y Visión">
+                          <div class="icon-circle bg-primario-claro d-flex align-items-center justify-content-center mb-2" aria-hidden="true"><i class="bi bi-eye-fill fs-4"></i></div>
+                          <div class="small">Misión & Visión</div>
+                      </a>
+                      <a href="#contacto" class="footer-quick-item text-white text-decoration-none d-flex flex-column align-items-center" aria-label="Ir a Contacto">
+                          <div class="icon-circle bg-secundario-claro d-flex align-items-center justify-content-center mb-2"><i class="bi bi-telephone-fill fs-4"></i></div>
+                          <div class="small">Contacto</div>
+                      </a>
+                      <a href="#proyectos-relevantes" class="footer-quick-item text-white text-decoration-none d-flex flex-column align-items-center" aria-label="Ir a Proyectos relevantes">
+                          <div class="icon-circle bg-primario-claro d-flex align-items-center justify-content-center mb-2"><i class="bi bi-flag-fill fs-4"></i></div>
+                          <div class="small">Proyectos</div>
+                      </a>
                   </div>
               </div>
-              <div class="col-md-4">
-                  <h5 class="fw-bold mb-3" style="color: #72b451;">Enlaces importantes</h5>
-                  <ul class="list-unstyled">
-                      <li class="mb-2"><a href="#nuestra-labor" class="text-white text-decoration-none">Nuestras líneas de acción</a></li>
-                      <li class="mb-2"><a href="#participar" class="text-white text-decoration-none">Cómo participar</a></li>
-                      <li class="mb-2"><a href="#" class="text-white text-decoration-none">Nuestros proyectos</a></li>
-                      <li class="mb-2"><a href="#" class="text-white text-decoration-none">Aviso de privacidad</a></li>
-                      <li class="mb-2"><a href="#" class="text-white text-decoration-none">Términos y condiciones</a></li>
-                  </ul>
+
+              <!-- Contacto y redes sociales -->
+              <div class="col-md-4 text-center text-md-start" id="contacto">
+                  <h5 class="fw-bold mb-3" style="color: #72b451;">Contacto</h5>
+                  <p class="mb-2"><i class="bi bi-envelope me-2" style="color: var(--color-secundario);"></i> <a href="mailto:corporacionjugaressonarcjs@outlook.com" class="text-white text-decoration-none">corporacionjugaressonarcjs@outlook.com</a></p>
+                  <p class="mb-2"><i class="bi bi-geo-alt me-2" style="color: var(--color-secundario);"></i> Barrio Niña Ceci, Comuna 8, Cúcuta</p>
+                  <p class="mb-3"><i class="bi bi-whatsapp me-2" style="color: var(--color-secundario);"></i> <a href="https://wa.me/573022226891" target="_blank" rel="noopener noreferrer" class="text-white text-decoration-none">Escríbenos por WhatsApp</a></p>
+
+                  <div class="social-links d-flex gap-2 align-items-center">
+                      <a href="https://api.whatsapp.com/send?phone=573022226891" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-link text-white d-inline-flex align-items-center justify-content-center p-2 rounded-circle"><i class="bi bi-whatsapp"></i></a>
+                      <a href="https://www.facebook.com/profile.php?id=100072492226109" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-link text-white d-inline-flex align-items-center justify-content-center p-2 rounded-circle"><i class="bi bi-facebook"></i></a>
+                      <a href="https://www.instagram.com/cjs_co/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link text-white d-inline-flex align-items-center justify-content-center p-2 rounded-circle"><i class="bi bi-instagram"></i></a>
+                  </div>
               </div>
+
+              <!-- Reservar espacio (términos y notas) - removidos enlaces importantes para simplificar -->
+              <div class="col-md-4 text-center text-md-start footer-note">
+                  <h5 class="fw-bold mb-3" style="color: #72b451;">Apóyanos</h5>
+                  <p class="mb-2">Ayúdanos a seguir transformando vidas. <a href="#participar" class="text-white text-decoration-underline">Saber cómo participar</a></p>
+                  <div class="small text-muted">© 2025 Jugar es Soñar. Todos los derechos reservados.</div>
+              </div>
+
           </div>
+
           <hr class="my-4 border-secondary">
-          <div class="text-center">
-              <p class="mb-2">© 2025 Jugar es Soñar - Corporación Social, Deportiva, Artística y Cultural. Todos los derechos reservados.</p>
-              <p class="small text-muted">Transformando vidas desde 2022 | Comuna 8, Cúcuta, Norte de Santander</p>
+
+          <div class="text-center small text-muted">
+              Transformando vidas desde 2022 | Comuna 8, Cúcuta, Norte de Santander
           </div>
       </div>
   </footer>

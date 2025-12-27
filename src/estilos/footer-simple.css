@@ -2,45 +2,81 @@
 /* Cambios (2025-12-26): ajustes para apilado en móvil y tamaños de toque (accesibilidad). */
 
 .footer-section {
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-  color: white;
+  background: #000; /* Fondo negro para mayor profundidad y contraste */
+  color: #e9f0ef; /* tono claro para texto */
+  border-top: 4px solid rgba(114, 180, 81, 0.06);
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
 }
 
 .footer-section h5 {
-  color: #72b451;
+  color: var(--color-primario);
   margin-bottom: 1rem;
 }
 
 .footer-section h6 {
   color: var(--color-secundario);
   margin-bottom: 0.5rem;
-} 
+}
 
 .footer-section a {
-  color: white;
+  color: #e9f0ef;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.22s ease, transform 0.18s ease;
 }
 
 .footer-section a:hover {
-  color: #72b451;
-  text-decoration: underline;
+  color: var(--color-primario);
+  transform: translateY(-2px);
+  text-decoration: none;
 }
 
 .footer-section .social-links a {
-  transition: transform 0.3s ease;
+  transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
 }
 
 .footer-section .social-links a:hover {
-  transform: scale(1.2);
+  transform: translateY(-4px) scale(1.05);
 }
 
 .footer-section .border-secondary {
-  border-color: #495057 !important;
+  border-color: rgba(255,255,255,0.06) !important;
 }
 
 .footer-section .text-muted {
-  color: #adb5bd !important;
+  color: #9aa4a6 !important;
+}
+
+/* Iconos de accesos rápidos: círculos con gradiente y microanimación */
+.footer-quick-item .icon-circle {
+  background: linear-gradient(135deg, rgba(114,180,81,0.12), rgba(255,138,138,0.08));
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+@keyframes pulse-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.footer-quick-item .icon-circle { animation: pulse-soft 6s ease-in-out infinite; }
+
+/* Redes sociales: colores vivos en hover */
+.social-link { background: transparent; border: 1px solid rgba(255,255,255,0.04); color: #fff; }
+.social-link:hover { background: linear-gradient(135deg, var(--color-primario), var(--color-secundario)); color: #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.22); transform: translateY(-4px) scale(1.05); }
+
+/* Notas y ajuste móvil */
+.footer-note .small { color: #cfd8d9; }
+
+@media (max-width: 768px) {
+  .footer-section { padding: 2.25rem 1rem; }
+  .footer-quick { justify-content: center; }
+  .social-links { justify-content: center; }
+  .footer-note { text-align: center !important; }
+  .footer-quick-item .icon-circle { width: 56px; height: 56px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-quick-item .icon-circle, .social-link { animation: none !important; transition: none !important; transform: none !important; }
 }
 
 /* Mejora para dispositivos móviles: aumentar zonas táctiles y apilar columnas */
@@ -60,6 +96,54 @@
   /* Si el footer tiene columnas, las apilamos para mejorar lectura en móvil */
   .footer-section .footer-columns { display: block; }
   .footer-section .footer-columns > div { margin-bottom: 1.2rem; }
+}
+
+/* Complementos visuales y animaciones para footer */
+.footer-quick { align-items: center; }
+.footer-quick-item { color: white; text-align: center; display: inline-flex; flex-direction: column; gap: .25rem; }
+.footer-quick-item .icon-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.footer-quick-item .icon-circle i { font-size: 1.1rem; }
+.footer-quick-item:hover .icon-circle,
+.footer-quick-item:focus-visible .icon-circle {
+  transform: translateY(-6px) scale(1.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.16);
+  background: rgba(255,255,255,0.08);
+}
+
+/* Redes sociales: botones circulares con microinteracciones */
+.social-links { display:flex; gap:.5rem; }
+.social-link {
+  width:44px; height:44px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.03); transition: transform .22s ease, background .22s ease, box-shadow .22s ease; font-size:1.05rem;
+}
+.social-link:hover, .social-link:focus {
+  transform: translateY(-4px) scale(1.05);
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.14);
+}
+.social-link:focus { outline: 2px solid rgba(114,180,81,0.16); }
+
+/* Footer note styling */
+.footer-note .small { color: #cfd8d9; }
+
+/* Mobile: apilar y centrar contenidos */
+@media (max-width: 768px) {
+  .footer-quick { justify-content: center; }
+  .social-links { justify-content: center; }
+  .footer-note { text-align: center !important; }
+}
+
+/* Preferencias de reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .footer-quick-item .icon-circle, .social-link { transition: none !important; transform: none !important; box-shadow: none !important; }
 }
 
 /* Comentario: estas reglas aseguran mejor usabilidad táctil y lectura en pantallas pequeñas */
