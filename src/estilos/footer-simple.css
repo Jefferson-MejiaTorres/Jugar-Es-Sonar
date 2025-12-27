@@ -49,20 +49,79 @@
 
 /* Iconos de accesos rápidos: círculos con gradiente y microanimación */
 .footer-quick-item .icon-circle {
-  background: linear-gradient(135deg, rgba(114,180,81,0.12), rgba(255,138,138,0.08));
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
   color: #fff;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.2);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
 }
 
 @keyframes pulse-soft {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-3px); }
 }
 .footer-quick-item .icon-circle { animation: pulse-soft 6s ease-in-out infinite; }
 
+/* Individual vivid gradients */
+.icon-mision { background: linear-gradient(135deg, var(--color-primario), var(--color-primary-hover)); }
+.icon-contact { background: linear-gradient(135deg, var(--color-secundario), #ff6b6b); }
+.icon-proyecto { background: linear-gradient(135deg, var(--color-primario), var(--color-secundario)); }
+
+.footer-quick-item .small { color: #e9f0ef; font-weight:600; margin-top: 0.25rem; }
+
+.footer-quick-item:hover .icon-circle,
+.footer-quick-item:focus-visible .icon-circle {
+  transform: translateY(-6px) scale(1.06);
+  filter: brightness(1.02) saturate(1.12);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.22);
+}
+
 /* Redes sociales: colores vivos en hover */
-.social-link { background: transparent; border: 1px solid rgba(255,255,255,0.04); color: #fff; }
+.social-link { background:transparent; border: 1px solid rgba(255,255,255,0.04); color: #fff; width:44px; height:44px; min-width:44px; min-height:44px; aspect-ratio: 1 / 1; display:inline-flex; align-items:center; justify-content:center; padding:0; border-radius:50%; overflow:hidden; box-sizing:border-box; }
 .social-link:hover { background: linear-gradient(135deg, var(--color-primario), var(--color-secundario)); color: #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.22); transform: translateY(-4px) scale(1.05); }
+
+/* Contact block styles: aligned and responsive */
+.footer-contact .contact-list { padding-left: 0; margin: 0; }
+.footer-contact .contact-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+.footer-contact .contact-icon {
+  width:48px;
+  height:48px;
+  min-width:48px;
+  border-radius:50%;
+  background: rgba(255,255,255,0.03);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.10);
+}
+.footer-contact .contact-icon i { font-size: 1.15rem; }
+.footer-contact .contact-link { color: #e9f0ef; font-weight:600; display:inline-block; }
+.footer-contact .contact-link:hover { color: var(--color-primario); text-decoration: none; }
+.footer-contact .contact-addr { color: #cbd6d7; }
+
+/* Desktop: ensure left-aligned items keep icon on the left */
+@media (min-width: 769px) {
+  .footer-contact { text-align: left; }
+  .footer-contact .contact-item { justify-content: flex-start; }
+  .footer-contact .contact-icon { margin-right: .6rem; margin-bottom: 0; }
+}
+
+/* Mobile: stack icon above text, center everything */
+@media (max-width: 768px) {
+  .footer-contact { text-align: center; }
+  .footer-contact .contact-item { flex-direction: column; align-items: center; gap: .35rem; }
+  .footer-contact .contact-icon { margin-right: 0 !important; margin-bottom: .35rem; width:56px; height:56px; min-width:56px; }
+  .footer-contact .contact-link, .footer-contact .contact-addr { width: 100%; display: block; }
+}
+
 
 /* Notas y ajuste móvil */
 .footer-note .small { color: #cfd8d9; }
@@ -73,6 +132,9 @@
   .social-links { justify-content: center; }
   .footer-note { text-align: center !important; }
   .footer-quick-item .icon-circle { width: 56px; height: 56px; }
+  .footer-contact .contact-item { justify-content: center; text-align: center; }
+  .footer-contact .contact-icon { margin-bottom: .25rem; margin-right: 0 !important; }
+  .footer-contact .contact-item > div { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -89,9 +151,14 @@
   .footer-section .social-links { margin-top: 1rem; }
   .footer-section .social-links a {
     display: inline-block;
-    padding: 12px;
+    padding: 6px; /* touch target preserved via width/height on .social-link */
     margin: 0 6px;
-    border-radius: 8px;
+    border-radius: 999px; /* keep circular feel */
+  }
+  /* Mobile override: ensure inner anchor (.social-link) is strictly circular */
+  @media (max-width: 768px) {
+    .footer-section .social-links a { padding: 0; }
+    .footer-section .social-links a .social-link { width:48px !important; height:48px !important; min-width:48px !important; min-height:48px !important; }
   }
   /* Si el footer tiene columnas, las apilamos para mejorar lectura en móvil */
   .footer-section .footer-columns { display: block; }
@@ -100,23 +167,100 @@
 
 /* Complementos visuales y animaciones para footer */
 .footer-quick { align-items: center; }
-.footer-quick-item { color: white; text-align: center; display: inline-flex; flex-direction: column; gap: .25rem; }
-.footer-quick-item .icon-circle {
-  width: 64px;
-  height: 64px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,0.06);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+.contact-icons { display:flex; align-items:center; gap: .75rem; }
+.contact-item { position: relative; }
+.contact-toggle {
+  width:48px; height:48px; min-width:48px; min-height:48px; aspect-ratio:1/1; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); color: #fff; font-size:1.1rem; cursor:pointer; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; padding:0;
 }
-.footer-quick-item .icon-circle i { font-size: 1.1rem; }
-.footer-quick-item:hover .icon-circle,
-.footer-quick-item:focus-visible .icon-circle {
-  transform: translateY(-6px) scale(1.06);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.16);
-  background: rgba(255,255,255,0.08);
+.contact-toggle:focus { outline: 2px solid rgba(114,180,81,0.16); }
+.contact-toggle:hover { transform: translateY(-4px); background: rgba(255,255,255,0.04); box-shadow: 0 8px 22px rgba(0,0,0,0.14); }
+
+.contact-pop {
+  position: absolute; left: 50%; transform: translateX(-50%) translateY(8px); min-width: 180px; background: rgba(255,255,255,0.03); color: #fff; padding: .6rem .75rem; border-radius: .6rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index: 40;
+}
+.contact-pop .contact-pop-link { color: #fff; font-weight:600; }
+.contact-pop .contact-pop-text { color: #cbd6d7; }
+
+/* show on hover (desktop) */
+.contact-item:hover .contact-pop { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(14px); }
+
+/* 'open' class toggled by JS (mobile click) */
+.contact-item.open .contact-pop { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(14px); }
+
+/* Central pop (desktop): absolute centered container in footer-contact */
+.contact-centre-pop {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(14px);
+  min-width: 220px;
+  max-width: 420px;
+  background: rgba(255,255,255,0.03);
+  color: #fff;
+  padding: .6rem .9rem;
+  border-radius: .6rem;
+  box-shadow: 0 14px 36px rgba(0,0,0,0.28);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 50;
+  transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+}
+.contact-centre-pop.visible { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(18px); }
+.contact-centre-pop::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: rgba(255,255,255,0.03);
+  transform: translateX(-50%) rotate(45deg);
+  box-shadow: -2px -2px 6px rgba(0,0,0,0.12);
+}
+
+/* mobile: panels become block centered below group */
+@media (max-width: 768px) {
+  /* Pop panels: small, centered under each icon (not full width) */
+  .contact-pop { position: absolute; left: 50%; transform: translateX(-50%) translateY(8px); min-width: 160px; width: auto; max-width: 90vw; margin-top: .35rem; }
+  /* Contact items inline so icons flow left-to-right and wrap to next line */
+  .contact-item { width: auto; display:inline-flex; flex-direction:column; align-items:center; margin: .25rem; }
+  .contact-icons { flex-direction:row; justify-content:center; flex-wrap:wrap; gap:.5rem; }
+  /* Ensure pop panels stack visually above other elements when open */
+  .contact-item { position: relative; }
+}
+
+/* Desktop: footer-contact relative positioning and hide per-item pop (we use central pop) */
+@media (min-width: 769px) {
+  /* Make contact column centered on desktop so central pop aligns visually */
+  .footer-contact { position: relative; text-align: center; }
+  /* Center the icons row and items */
+  .contact-icons { justify-content: center !important; }
+  .contact-item { justify-content: center; display: inline-flex; }
+  .contact-item .contact-pop { display: none !important; }
+  /* Ensure apóyanos column content is also centered for visual balance */
+  .footer-note { text-align: center !important; }
+  /* Slight visual nudge: move footer titles a bit to the right on desktop for better alignment */
+  /* Increase right shift to be clearly visible on desktop */
+  .footer-section h5.footer-title-shift { display: inline-block; margin-left: 72px !important; transform: none !important; }
+  /* Make Contacto slightly more moved than other titles */
+  .footer-section h5.footer-title-shift-contact { margin-left: 116px !important; transform: none !important; }
+
+  /* More aggressive rule for large screens */
+  @media (min-width: 992px) {
+    .footer-section h5.footer-title-shift { margin-left: 96px !important; }
+    /* Fallback very specific selector to override other layout rules */
+    .row > .col-md-4 .footer-title-shift { margin-left: 96px !important; }
+    /* Contacto moved a bit more on large screens */
+    .footer-section h5.footer-title-shift-contact { margin-left: 144px !important; }
+    .row > .col-md-4 .footer-title-shift-contact { margin-left: 144px !important; }
+  }
+}
+
+/* Accessibility and reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .contact-pop, .contact-toggle { transition: none !important; }
 }
 
 /* Redes sociales: botones circulares con microinteracciones */
